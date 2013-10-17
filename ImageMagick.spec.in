@@ -235,7 +235,6 @@ rm -rf %{buildroot}
 %{_datadir}/%{name}-%{MAJOR_VERSION}
 %{_mandir}/man[145]/[a-z]*
 %{_mandir}/man1/%{name}.*
-%exclude %{_libdir}/%{name}-%{VERSION}/modules-*/coders/djvu.*
 %{_sysconfdir}/%{name}-%{MAJOR_VERSION}
 
 %files devel
@@ -260,7 +259,6 @@ rm -rf %{buildroot}
 
 %files djvu
 %defattr(-,root,root,-)
-#%{_libdir}/%{name}-%{version}/modules-Q*/coders/djvu.*
 
 %files doc
 %defattr(-,root,root,-)
