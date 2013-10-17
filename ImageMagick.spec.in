@@ -250,9 +250,9 @@ rm -rf %{buildroot}
 %{_libdir}/pkgconfig/ImageMagick*.pc
 %{_libdir}/pkgconfig/MagickWand*.pc
 %{_libdir}/pkgconfig/Wand*.pc
-%dir %{_includedir}/%{name}-%{MAJOR_VERSION}
-%{_includedir}/%{name}-%{MAJOR_VERSION}/magick
-%{_includedir}/%{name}-%{MAJOR_VERSION}/wand
+%dir %{_includedir}/
+%{_includedir}/magick
+%{_includedir}/wand
 %{_mandir}/man1/Magick-config.*
 %{_mandir}/man1/MagickCore-config.*
 %{_mandir}/man1/Wand-config.*
