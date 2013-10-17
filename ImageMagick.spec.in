@@ -260,7 +260,7 @@ rm -rf %{buildroot}
 
 %files djvu
 %defattr(-,root,root,-)
-%{_libdir}/%{name}-%{version}/modules-Q*/coders/djvu.*
+#%{_libdir}/%{name}-%{version}/modules-Q*/coders/djvu.*
 
 %files doc
 %defattr(-,root,root,-)
@@ -277,8 +277,8 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 %doc Magick++/examples
 %{_bindir}/Magick++-config
-%{_includedir}/%{name}-%{MAJOR_VERSION}/Magick++
-%{_includedir}/%{name}-%{MAJOR_VERSION}/Magick++.h
+%{_includedir}/Magick++
+%{_includedir}/Magick++.h
 %{_libdir}/libMagick++*so*
 %{_libdir}/pkgconfig/Magick++*.pc
 %{_libdir}/pkgconfig/ImageMagick++*.pc
