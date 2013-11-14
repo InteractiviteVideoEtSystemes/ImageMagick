@@ -1365,7 +1365,7 @@ static MagickBooleanType LoadTypeLists(const char *filename,
       option=FileToString(path,~0,exception);
       if (option != (void *) NULL)
         {
-          status&=LoadTypeListLoadTypeList(option,path,0,exception);
+          status&=LoadTypeList(option,path,0,exception);
           option=DestroyString(option);
         }
       font_path=DestroyString(font_path);
