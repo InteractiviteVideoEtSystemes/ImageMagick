@@ -1151,7 +1151,7 @@ static MagickBooleanType LoadTypeList(const char *xml,const char *filename,
           {
             type_info->description=ConstantString(token);
 	    (void) LogMagickEvent(ConfigureEvent,GetMagickModule(),
-			"LoadFontList: Got font full name %s", keyword);
+			"LoadFontList: Got font full name %s", type_info->description );
             break;
           }
         break;
@@ -1165,6 +1165,8 @@ static MagickBooleanType LoadTypeList(const char *xml,const char *filename,
               *path;
 
             path=ConstantString(token);
+	    (void) LogMagickEvent(ConfigureEvent,GetMagickModule(),
+			"LoadFontList: Got font file %s", path );
 #if defined(MAGICKCORE_WINDOWS_SUPPORT)
             if (strchr(path,'@') != (char *) NULL)
               SubstituteString(&path,"@ghostscript_font_path@",font_path);
@@ -1236,7 +1238,7 @@ static MagickBooleanType LoadTypeList(const char *xml,const char *filename,
           {
             type_info->name=ConstantString(token);
 	    (void) LogMagickEvent(ConfigureEvent,GetMagickModule(),
-			"LoadFontList: got font name %s", keyword);
+			"LoadFontList: got font name %s",type_info->name );
 	    
             break;
           }
