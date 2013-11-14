@@ -973,13 +973,20 @@ static MagickBooleanType LoadTypeList(const char *xml,const char *filename,
     Load the type map file.
   */
   (void) LogMagickEvent(ConfigureEvent,GetMagickModule(),
-    "Loading type configure file \"%s\" ...",filename);
+    "Loading type configure file \"%s\" at include depth %u ...",filename, depth);
   if (xml == (const char *) NULL)
+  {
+    (void) LogMagickEvent(ConfigureEvent,GetMagickModule(),
+	     "LoadFontList: xml is NULL");
     return(MagickFalse);
+  }
   if (type_list == (SplayTreeInfo *) NULL)
     {
       type_list=NewSplayTree(CompareSplayTreeString,(void *(*)(void *)) NULL,
         DestroyTypeNode);
+        (void) LogMagickEvent(ConfigureEvent,GetMagickModule(),
+           "LoadFontList: Allocating tree for font list.");
+	
       if (type_list == (SplayTreeInfo *) NULL)
         {
           ThrowFileException(exception,ResourceLimitError,
@@ -997,6 +1004,8 @@ static MagickBooleanType LoadTypeList(const char *xml,const char *filename,
   *font_path='\0';
   if (NTGhostscriptFonts(font_path,MaxTextExtent-2))
     (void) ConcatenateMagickString(font_path,DirectorySeparator,MaxTextExtent);
+  (void) LogMagickEvent(ConfigureEvent,GetMagickModule(),
+                        "LoadFontList: Ghostscript font path is %s.", font_path);
 #endif
   for (q=(char *) xml; *q != '\0'; )
   {
@@ -1065,6 +1074,8 @@ static MagickBooleanType LoadTypeList(const char *xml,const char *filename,
                   sans_exception=DestroyExceptionInfo(sans_exception);
                   if (xml != (char *) NULL)
                     {
+		        (void) LogMagickEvent(ConfigureEvent,GetMagickModule(),
+			  "LoadFontList: processing include directive. Loading xml file %s.\n", path);
                       status=LoadTypeList(xml,path,depth+1,exception);
                       xml=(char *) RelinquishMagickMemory(xml);
                     }
@@ -1139,6 +1150,8 @@ static MagickBooleanType LoadTypeList(const char *xml,const char *filename,
         if (LocaleCompare((char *) keyword,"fullname") == 0)
           {
             type_info->description=ConstantString(token);
+	    (void) LogMagickEvent(ConfigureEvent,GetMagickModule(),
+			"LoadFontList: Got font full name %s", keyword);
             break;
           }
         break;
@@ -1161,6 +1174,9 @@ static MagickBooleanType LoadTypeList(const char *xml,const char *filename,
                 /*
                   Relative path.
                 */
+	        (void) LogMagickEvent(ConfigureEvent,GetMagickModule(),
+			"LoadFontList: Font file %s is not readable. Trying relative path.", path);
+		
                 path=DestroyString(path);
                 GetPathComponent(filename,HeadPath,font_path);
                 (void) ConcatenateMagickString(font_path,DirectorySeparator,
@@ -1169,6 +1185,8 @@ static MagickBooleanType LoadTypeList(const char *xml,const char *filename,
                 path=ConstantString(font_path);
                 if (IsPathAccessible(path) == MagickFalse)
                   {
+		   (void) LogMagickEvent(ConfigureEvent,GetMagickModule(),
+			"LoadFontList: Font relative path file %s is not readable.", path);
                     path=DestroyString(path);
                     path=ConstantString(token);
                   }
@@ -1196,6 +1214,9 @@ static MagickBooleanType LoadTypeList(const char *xml,const char *filename,
                 /*
                   Relative path.
                 */
+		  (void) LogMagickEvent(ConfigureEvent,GetMagickModule(),
+			"LoadFontList: Font metrics file %s is not readable.", path);
+		
                 path=DestroyString(path);
                 GetPathComponent(filename,HeadPath,font_path);
                 (void) ConcatenateMagickString(font_path,DirectorySeparator,
@@ -1214,6 +1235,9 @@ static MagickBooleanType LoadTypeList(const char *xml,const char *filename,
         if (LocaleCompare((char *) keyword,"name") == 0)
           {
             type_info->name=ConstantString(token);
+	    (void) LogMagickEvent(ConfigureEvent,GetMagickModule(),
+			"LoadFontList: got font name %s", keyword);
+	    
             break;
           }
         break;
@@ -1291,7 +1315,12 @@ static MagickBooleanType LoadTypeList(const char *xml,const char *filename,
 static MagickBooleanType LoadTypeLists(const char *filename,
   ExceptionInfo *exception)
 {
+    (void) LogMagickEvent(ConfigureEvent,GetMagickModule(),
+			 "Loading font list from file file \"%s\" ...",filename);
 #if defined(MAGICKCORE_ZERO_CONFIGURATION_SUPPORT)
+ (void) LogMagickEvent(ConfigureEvent,GetMagickModule(),
+			 "Zero conf option. Loading only built in fonts.");
+
   return(LoadTypeList(TypeMap,"built-in",0,exception));
 #else
   char
@@ -1330,14 +1359,21 @@ static MagickBooleanType LoadTypeLists(const char *filename,
       */
       (void) FormatLocaleString(path,MaxTextExtent,"%s%s%s",font_path,
         DirectorySeparator,filename);
+	
+     (void) LogMagickEvent(ConfigureEvent,GetMagickModule(),
+			   "Found MAGICK_FONT_PATH. Loading font list from \"%s\" ...",path);	
       option=FileToString(path,~0,exception);
       if (option != (void *) NULL)
         {
-          status&=LoadTypeList(option,path,0,exception);
+          status&=LoadTypeListLoadTypeList(option,path,0,exception);
           option=DestroyString(option);
         }
       font_path=DestroyString(font_path);
     }
+
+    if (type_list != NULL)
+      (void) LogMagickEvent(ConfigureEvent,GetMagickModule(),
+			   "Loaded \"%d\" font definitions.",GetNumberOfNodesInSplayTree(type_list) );	
   if ((type_list == (SplayTreeInfo *) NULL) ||
       (GetNumberOfNodesInSplayTree(type_list) == 0))
     status&=LoadTypeList(TypeMap,"built-in",0,exception);
