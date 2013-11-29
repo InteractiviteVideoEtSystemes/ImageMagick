@@ -4066,7 +4066,7 @@ coders_yuv_la_CPPFLAGS = $(MODULE_EXTRA_CPPFLAGS)
 coders_yuv_la_LDFLAGS = $(MODULECOMMONFLAGS)
 coders_yuv_la_LIBADD = $(MAGICKCORE_LIBS)
 magickincdir = $(INCLUDE_PATH)/magick
-magickincarchdir = $(INCLUDEARCH_PATH)/magick
+magickincarchdir = $(INCLUDEARCH_DIR)/magick
 
 # Headers which are installed
 magickinc_HEADERS = \
