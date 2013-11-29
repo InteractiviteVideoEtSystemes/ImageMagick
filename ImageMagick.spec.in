@@ -151,7 +151,8 @@ however.
 
 
 %prep
-./configure --prefix=/usr --with-includearch-dir=/usr/include --includedir=/usr/include --libdir=%{_libdir}
+ls -l configure
+./configure --prefix=/usr --with-includearch-dir=/usr/include --includedir=/usr/include --libdir=%{_libdir} \
 	   --enable-shared \
            --disable-static \
            --with-modules \
