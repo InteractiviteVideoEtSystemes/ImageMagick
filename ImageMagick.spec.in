@@ -154,6 +154,7 @@ however.
 ls -l
 pwd
 ./configure --prefix=/usr --with-includearch-dir=/usr/include --includedir=/usr/include --libdir=%{_libdir} \
+	   --sysconfdir=/etc \
 	   --enable-shared \
            --disable-static \
            --with-modules \
