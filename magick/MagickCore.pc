@@ -1,10 +1,10 @@
 prefix=/usr
 exec_prefix=${prefix}
-libdir=/usr/lib64
+libdir=${exec_prefix}/lib
 includedir=/usr/include/ImageMagick-6
 includearchdir=/usr/include/ImageMagick-6
 libname=MagickCore-6.Q16
-moduledir=/usr/lib64/ImageMagick-6.8.7/modules-Q16
+moduledir=${exec_prefix}/lib/ImageMagick-6.8.7/modules-Q16
 
 Name: MagickCore
 Description: MagickCore - C API for ImageMagick (ABI Q16)

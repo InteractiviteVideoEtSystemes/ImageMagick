@@ -380,7 +380,7 @@
 #define HAVE_PWRITE 1
 
 /* Define to 1 if you have the `qsort_r' function. */
-/* #undef HAVE_QSORT_R */
+#define HAVE_QSORT_R 1
 
 /* Define to 1 if you have the `raise' function. */
 #define HAVE_RAISE 1
@@ -732,7 +732,7 @@
 #define LCMS_DELEGATE 1
 
 /* Directory where architecture-dependent files live. */
-#define LIBRARY_PATH "/usr/lib64/ImageMagick-6.8.7/"
+#define LIBRARY_PATH "/usr/lib/ImageMagick-6.8.7/"
 
 /* Subdirectory of lib where ImageMagick architecture dependent files are
    installed */
@@ -786,7 +786,7 @@
 /* #undef NO_MINUS_C_MINUS_O */
 
 /* Define if you have OPENEXR library */
-/* #undef OPENEXR_DELEGATE */
+#define OPENEXR_DELEGATE 1
 
 /* Name of package */
 #define PACKAGE "ImageMagick"
@@ -798,7 +798,7 @@
 #define PACKAGE_NAME "ImageMagick"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "ImageMagick 6.8.7-0"
+#define PACKAGE_STRING "ImageMagick 6.8.7-2"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "ImageMagick"
@@ -807,13 +807,13 @@
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "6.8.7-0"
+#define PACKAGE_VERSION "6.8.7-2"
 
 /* Define if you have PANGOCAIRO library */
-/* #undef PANGOCAIRO_DELEGATE */
+#define PANGOCAIRO_DELEGATE 1
 
 /* Define if you have PANGO library */
-/* #undef PANGO_DELEGATE */
+#define PANGO_DELEGATE 1
 
 /* Define if you have PNG library */
 #define PNG_DELEGATE 1

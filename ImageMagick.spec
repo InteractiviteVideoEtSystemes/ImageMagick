@@ -1,6 +1,6 @@
 %global VERSION  6.8.7
 %global MAJOR_VERSION  6
-%global Patchlevel  0
+%global Patchlevel  2
 
 Name:           ImageMagick
 Version:        %{VERSION}
@@ -151,17 +151,11 @@ however.
 
 
 %prep
-%setup -q -n %{name}-%{VERSION}-%{Patchlevel}
-sed -i 's/libltdl.la/libltdl.so/g' configure
-iconv -f ISO-8859-1 -t UTF-8 README.txt > README.txt.tmp
-touch -r README.txt README.txt.tmp
-mv README.txt.tmp README.txt
-# for %%doc
-mkdir Magick++/examples
-cp -p Magick++/demo/*.cpp Magick++/demo/*.miff Magick++/examples
-
-%build
-%configure --enable-shared \
+ls -l
+pwd
+./configure --prefix=/usr --with-includearch-dir=/usr/include --includedir=/usr/include --libdir=%{_libdir} \
+	   --sysconfdir=/etc \
+	   --enable-shared \
            --disable-static \
            --with-modules \
            --with-perl \
@@ -175,16 +169,24 @@ cp -p Magick++/demo/*.cpp Magick++/demo/*.miff Magick++/examples
            --with-xml \
            --with-perl-options="INSTALLDIRS=vendor %{?perl_prefix} CC='%__cc -L$PWD/magick/.libs' LDDLFLAGS='-shared -L$PWD/magick/.libs'" \
            --without-dps
+
+sed -i 's/libltdl.la/libltdl.so/g' configure
+iconv -f ISO-8859-1 -t UTF-8 README.txt > README.txt.tmp
+touch -r README.txt README.txt.tmp
+mv README.txt.tmp README.txt
+# for %%doc
+mkdir Magick++/examples
+cp -p Magick++/demo/*.cpp Magick++/demo/*.miff Magick++/examples
+
+%build
 # Disable rpath
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 # Do *NOT* use %%{?_smp_mflags}, this causes PerlMagick to be silently misbuild
-make
+make 
 
 
 %install
-rm -rf %{buildroot}
-
 make install DESTDIR=%{buildroot} INSTALL="install -p"
 cp -a www/source %{buildroot}%{_datadir}/doc/%{name}-%{MAJOR_VERSION}
 rm %{buildroot}%{_libdir}/*.la

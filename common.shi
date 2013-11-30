@@ -1,21 +1,21 @@
 # Test environment
-top_srcdir='/home/operation/ImageMagick-6.8.7-0'
-top_builddir='/home/operation/ImageMagick-6.8.7-0'
+top_srcdir='/home/jenkins/workspace/ImageMagick/label/centos6-64bits'
+top_builddir='/home/jenkins/workspace/ImageMagick/label/centos6-64bits'
 
 set -a
-COMPARE="/home/operation/ImageMagick-6.8.7-0/utilities/compare"
-COMPOSITE="/home/operation/ImageMagick-6.8.7-0/utilities/composite"
-CONJURE="/home/operation/ImageMagick-6.8.7-0/utilities/conjure"
-CONVERT="/home/operation/ImageMagick-6.8.7-0/utilities/convert"
-DISPLAY="/home/operation/ImageMagick-6.8.7-0/utilities/display"
-IDENTIFY="/home/operation/ImageMagick-6.8.7-0/utilities/identify"
-MONTAGE="/home/operation/ImageMagick-6.8.7-0/utilities/montage" 
-VALIDATE="/home/operation/ImageMagick-6.8.7-0/tests/validate"
-DRAWTEST="/home/operation/ImageMagick-6.8.7-0/tests/drawtest"
-WANDTEST="/home/operation/ImageMagick-6.8.7-0/tests/wandtest"
-LD_LIBRARY_PATH="/home/operation/ImageMagick-6.8.7-0/magick/.libs:${LD_LIBRARY_PATH}"
-MAGICK_CODER_MODULE_PATH="/home/operation/ImageMagick-6.8.7-0/coders"
-MAGICK_CONFIGURE_PATH="/home/operation/ImageMagick-6.8.7-0/config:/home/operation/ImageMagick-6.8.7-0/config"
-MAGICK_FILTER_MODULE_PATH="/home/operation/ImageMagick-6.8.7-0/filters"
-PATH="/home/operation/ImageMagick-6.8.7-0/utilities:/home/operation/ImageMagick-6.8.7-0/tests:${PATH}"
+COMPARE="/home/jenkins/workspace/ImageMagick/label/centos6-64bits/utilities/compare"
+COMPOSITE="/home/jenkins/workspace/ImageMagick/label/centos6-64bits/utilities/composite"
+CONJURE="/home/jenkins/workspace/ImageMagick/label/centos6-64bits/utilities/conjure"
+CONVERT="/home/jenkins/workspace/ImageMagick/label/centos6-64bits/utilities/convert"
+DISPLAY="/home/jenkins/workspace/ImageMagick/label/centos6-64bits/utilities/display"
+IDENTIFY="/home/jenkins/workspace/ImageMagick/label/centos6-64bits/utilities/identify"
+MONTAGE="/home/jenkins/workspace/ImageMagick/label/centos6-64bits/utilities/montage" 
+VALIDATE="/home/jenkins/workspace/ImageMagick/label/centos6-64bits/tests/validate"
+DRAWTEST="/home/jenkins/workspace/ImageMagick/label/centos6-64bits/tests/drawtest"
+WANDTEST="/home/jenkins/workspace/ImageMagick/label/centos6-64bits/tests/wandtest"
+LD_LIBRARY_PATH="/home/jenkins/workspace/ImageMagick/label/centos6-64bits/magick/.libs:${LD_LIBRARY_PATH}"
+MAGICK_CODER_MODULE_PATH="/home/jenkins/workspace/ImageMagick/label/centos6-64bits/coders"
+MAGICK_CONFIGURE_PATH="/home/jenkins/workspace/ImageMagick/label/centos6-64bits/config:/home/jenkins/workspace/ImageMagick/label/centos6-64bits/config"
+MAGICK_FILTER_MODULE_PATH="/home/jenkins/workspace/ImageMagick/label/centos6-64bits/filters"
+PATH="/home/jenkins/workspace/ImageMagick/label/centos6-64bits/utilities:/home/jenkins/workspace/ImageMagick/label/centos6-64bits/tests:${PATH}"
 set +a

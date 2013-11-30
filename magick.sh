@@ -19,13 +19,13 @@
 #
 #    magick.sh convert -size 640x480 gradient:black-yellow gradient.png
 
-top_srcdir='/home/operation/ImageMagick-6.8.7-0'
-top_builddir='/home/operation/ImageMagick-6.8.7-0'
+top_srcdir='/home/jenkins/workspace/ImageMagick/label/centos6-64bits'
+top_builddir='/home/jenkins/workspace/ImageMagick/label/centos6-64bits'
 
-MAGICK_CODER_MODULE_PATH='/home/operation/ImageMagick-6.8.7-0/coders'
-MAGICK_CONFIGURE_SRC_PATH='/home/operation/ImageMagick-6.8.7-0/config'
-MAGICK_CONFIGURE_BUILD_PATH='/home/operation/ImageMagick-6.8.7-0/config'
-MAGICK_FILTER_MODULE_PATH='/home/operation/ImageMagick-6.8.7-0/filters'
+MAGICK_CODER_MODULE_PATH='/home/jenkins/workspace/ImageMagick/label/centos6-64bits/coders'
+MAGICK_CONFIGURE_SRC_PATH='/home/jenkins/workspace/ImageMagick/label/centos6-64bits/config'
+MAGICK_CONFIGURE_BUILD_PATH='/home/jenkins/workspace/ImageMagick/label/centos6-64bits/config'
+MAGICK_FILTER_MODULE_PATH='/home/jenkins/workspace/ImageMagick/label/centos6-64bits/filters'
 DIRSEP=':'
 
 PATH="${top_builddir}/utilities:${PATH}"

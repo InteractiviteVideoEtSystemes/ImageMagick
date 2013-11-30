@@ -158,7 +158,6 @@ pwd
 	   --enable-shared \
            --disable-static \
            --with-modules \
-           --with-perl \
            --with-x \
            --with-threads \
            --with-magick_plus_plus \

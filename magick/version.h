@@ -31,18 +31,18 @@ extern "C" {
 #define MagickLibVersion  0x687
 #define MagickLibVersionText  "6.8.7"
 #define MagickLibVersionNumber  1,0,0
-#define MagickLibAddendum  "-0"
+#define MagickLibAddendum  "-2"
 #define MagickLibInterface  1
 #define MagickLibMinInterface  1
 #define MagickppLibVersionText  "6.8.7"
 #define MagickppLibVersionNumber  @MAGICKPP_LIB_VERSION_NUMBER@
-#define MagickppLibAddendum  "-0"
+#define MagickppLibAddendum  "-2"
 #define MagickppLibInterface  3
 #define MagickppLibMinInterface  3
-#define MagickReleaseDate  "2013-10-12"
+#define MagickReleaseDate  "2013-11-30"
 #define MagickChangeDate   "20130923"
 #define MagickFeatures "DPC OpenMP"
-#define MagickDelegates "bzlib djvu mpeg fontconfig freetype jng jp2 jpeg lcms png ps rsvg tiff x xml zlib"
+#define MagickDelegates "bzlib djvu mpeg fontconfig freetype jng jp2 jpeg lcms openexr pango png ps rsvg tiff x xml zlib"
 #define MagickHomeURL  "file:///usr/share/doc/ImageMagick-6/index.html"
 #define MagickAuthoritativeURL  "http://www.imagemagick.org"
 #if (MAGICKCORE_QUANTUM_DEPTH == 8)

@@ -574,7 +574,9 @@
 #endif
 
 /* Define to 1 if you have the `qsort_r' function. */
-/* #undef HAVE_QSORT_R */
+#ifndef MAGICKCORE_HAVE_QSORT_R
+#define MAGICKCORE_HAVE_QSORT_R 1
+#endif
 
 /* Define to 1 if you have the `raise' function. */
 #ifndef MAGICKCORE_HAVE_RAISE
@@ -1115,7 +1117,7 @@
 
 /* Directory where architecture-dependent files live. */
 #ifndef MAGICKCORE_LIBRARY_PATH
-#define MAGICKCORE_LIBRARY_PATH "/usr/lib64/ImageMagick-6.8.7/"
+#define MAGICKCORE_LIBRARY_PATH "/usr/lib/ImageMagick-6.8.7/"
 #endif
 
 /* Subdirectory of lib where ImageMagick architecture dependent files are
@@ -1184,7 +1186,9 @@
 /* #undef NO_MINUS_C_MINUS_O */
 
 /* Define if you have OPENEXR library */
-/* #undef OPENEXR_DELEGATE */
+#ifndef MAGICKCORE_OPENEXR_DELEGATE
+#define MAGICKCORE_OPENEXR_DELEGATE 1
+#endif
 
 /* Name of package */
 #ifndef MAGICKCORE_PACKAGE
@@ -1203,7 +1207,7 @@
 
 /* Define to the full name and version of this package. */
 #ifndef MAGICKCORE_PACKAGE_STRING
-#define MAGICKCORE_PACKAGE_STRING "ImageMagick 6.8.7-0"
+#define MAGICKCORE_PACKAGE_STRING "ImageMagick 6.8.7-2"
 #endif
 
 /* Define to the one symbol short name of this package. */
@@ -1218,14 +1222,18 @@
 
 /* Define to the version of this package. */
 #ifndef MAGICKCORE_PACKAGE_VERSION
-#define MAGICKCORE_PACKAGE_VERSION "6.8.7-0"
+#define MAGICKCORE_PACKAGE_VERSION "6.8.7-2"
 #endif
 
 /* Define if you have PANGOCAIRO library */
-/* #undef PANGOCAIRO_DELEGATE */
+#ifndef MAGICKCORE_PANGOCAIRO_DELEGATE
+#define MAGICKCORE_PANGOCAIRO_DELEGATE 1
+#endif
 
 /* Define if you have PANGO library */
-/* #undef PANGO_DELEGATE */
+#ifndef MAGICKCORE_PANGO_DELEGATE
+#define MAGICKCORE_PANGO_DELEGATE 1
+#endif
 
 /* Define if you have PNG library */
 #ifndef MAGICKCORE_PNG_DELEGATE
