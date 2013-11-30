@@ -166,7 +166,6 @@ pwd
            --with-lcms \
            --with-rsvg \
            --with-xml \
-           --with-perl-options="INSTALLDIRS=vendor %{?perl_prefix} CC='%__cc -L$PWD/magick/.libs' LDDLFLAGS='-shared -L$PWD/magick/.libs'" \
            --without-dps
 
 sed -i 's/libltdl.la/libltdl.so/g' configure
